@@ -1,0 +1,14 @@
+{
+  "name": "forest-friends",
+  "version": "0.14.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "node local.mjs",
+    "build": "node build.mjs",
+    "test": "node scripts/check.mjs"
+  }
+}

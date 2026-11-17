@@ -1,0 +1,1 @@
+CREATE TABLE feeding (owner TEXT NOT NULL REFERENCES players(id), friend TEXT NOT NULL REFERENCES players(id), total INTEGER NOT NULL DEFAULT 0, last_fed INTEGER NOT NULL DEFAULT 0, PRIMARY KEY(owner,friend));

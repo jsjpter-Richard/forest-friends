@@ -1,0 +1,128 @@
+/* Small discoveries in Pebble Grove. */
+#grove-notes-overlay{z-index:3200;padding:20px;background:#31463866;backdrop-filter:blur(5px)}
+#grove-notes-overlay[hidden],#grove-place-control[hidden],#walk-marker[hidden],.grove-place[hidden]{display:none!important}
+.pocket-notebook{width:620px;max-width:100%;max-height:calc(100dvh - 40px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#b8bda5 #f5f1e4;background:#faf7ed;color:#3f5544;border:1px solid #e1ddcc;border-radius:14px;padding:26px 28px 18px;box-shadow:0 16px 60px #263e352b}
+.notebook-heading{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-bottom:12px;border-bottom:1px solid #dedfcd}
+.notebook-heading .eyebrow{font-size:10px;letter-spacing:1.5px;color:#82765e;line-height:1.6}
+.notebook-heading .close{width:44px;height:44px;min-width:44px;display:grid;place-items:center;padding:0;font-size:23px;border:1px solid #dedfcd;border-radius:9px;background:#f5f2e5;color:#62705a}
+.pocket-notebook h2{margin:20px 0 8px;font:500 32px/1.15 Georgia,'Times New Roman',serif;letter-spacing:-.6px}
+.pocket-notebook .notebook-intro{font-size:12px;line-height:1.8;color:#747d68;margin:0 0 20px;max-width:490px}
+.notebook-pages{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px}
+.notebook-entry{display:grid;grid-template-columns:48px minmax(0,1fr);align-items:start;gap:11px;padding:17px 0 18px;border-top:1px solid #dedfcd}
+.note-sketch{width:48px;height:55px;display:grid;place-items:center;color:#70816b;background:#eeedde;border-radius:43% 48% 46% 41%;margin-top:2px}
+.note-sketch svg{display:block;width:42px;height:42px;max-width:100%;overflow:visible}
+.note-copy{min-width:0}
+.note-copy h3{font:500 20px/1.25 Georgia,'Times New Roman',serif;letter-spacing:-.3px;margin:0 0 8px;color:#405643}
+.note-copy p{font-size:12px;line-height:1.75;color:#717a66;margin:0 0 8px}
+.note-copy small{display:block;font-size:11px;line-height:1.6;color:#7b7d6a;margin:8px 0}
+.notebook-entry.unseen .note-sketch{background:#efede4;color:#929786}
+.notebook-entry.unseen h3{color:#747c69}
+.note-walk{display:inline-flex;align-items:center;justify-content:space-between;gap:9px;min-height:44px;max-width:100%;border:1px solid #d8decb;border-radius:8px;padding:9px 11px;background:#edf0e2;color:#516f57;font-size:11px;font-weight:600;text-align:left;line-height:1.5}
+.note-walk:hover:not(:disabled){background:#e4eada;border-color:#b9c5ac}
+.note-walk:focus-visible,.grove-place-pin:focus-visible,.grove-place-control button:focus-visible{outline:3px solid #c5a46d;outline-offset:3px}
+.notebook-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid #dedfcd;margin-top:7px;padding-top:17px}
+.notebook-footer>small{font-size:11px;line-height:1.7;color:#79806b;max-width:330px}
+.notebook-footer .secondary{min-height:44px;font-size:12px;padding:10px 16px;flex-shrink:0;background:#f6f3e7;border-radius:8px}
+.grove-place-control{width:270px;max-width:calc(100% - 160px);min-width:200px;padding:17px 18px 15px;background:#f8f4e7ed;color:#4b624c;border:1px solid #e2e2cb;border-radius:14px;box-shadow:0 5px 20px #2f4b321b;backdrop-filter:blur(8px)}
+.grove-place-control>.eyebrow{display:block;font-size:9px;letter-spacing:1.3px;line-height:1.6;margin-bottom:7px;color:#8a7b5f}
+.grove-place-control>strong{display:block;font:500 21px/1.2 Georgia,'Times New Roman',serif;letter-spacing:-.3px}
+.grove-place-control>p{font-size:12px;line-height:1.65;color:#738066;margin:9px 0 12px}
+.grove-place-control>button{width:100%;min-height:44px;border-radius:8px;font-size:12px;line-height:1.4;padding:10px 12px;white-space:normal}
+.grove-place-control>.primary{background:#627d62;border:1px solid #587458;box-shadow:0 2px 0 #3d583622;color:#fffbed}
+.grove-place-control>.primary:hover:not(:disabled){background:#6a8669}
+.grove-place-control .place-secondary{background:transparent;color:#6b7d61;border:1px solid #d3dbc6;margin-top:7px;box-shadow:none;font-weight:600}
+.grove-place-control .place-secondary:hover{background:#eeefdf}
+.walk-marker{position:absolute;width:25px;height:14px;border:1.5px solid #f9e6b5;border-radius:50%;background:#f0dfaa28;transform:translate(-50%,-50%);box-shadow:0 0 0 3px #f7eed516;pointer-events:none;z-index:2}
+.walk-marker:after{content:'';position:absolute;left:9px;top:4px;width:4px;height:3px;background:#fcf1d4;border-radius:50%}
+.grove-place{position:absolute;z-index:4;transform:translate(-50%,-50%);text-align:center;pointer-events:none}
+.grove-place-pin{position:relative;display:grid;place-items:center;width:44px;height:44px;margin:auto;padding:6px;background:transparent;color:#657a60;border-radius:50%;pointer-events:auto;-webkit-tap-highlight-color:transparent}
+.grove-place-pin:before{content:'';position:absolute;inset:6px;border:1px solid #eee9d3b3;background:#faf4e5d9;border-radius:45% 51% 47% 49%;box-shadow:0 2px 6px #3e583317;z-index:-1}
+.grove-place-pin svg{display:block;width:22px;height:22px;pointer-events:none}
+.grove-place-pin:hover:before,.grove-place.is-near .grove-place-pin:before,.grove-place-pin:focus-visible:before{border-color:#eddda9;background:#faf0d4ed}
+.grove-place-label{display:block;position:absolute;left:50%;top:43px;transform:translateX(-50%);width:max-content;max-width:160px;background:#faf5e7e8;color:#5d7154;border:1px solid #e1e4cc;border-radius:6px;padding:5px 7px;font-size:10px;line-height:1.3;opacity:0;visibility:hidden;pointer-events:none}
+.grove-place:hover .grove-place-label,.grove-place:focus-within .grove-place-label,.grove-place.is-near .grove-place-label{opacity:1;visibility:visible}
+#zoo-explore .grove-toolbar>button{min-height:44px}
+#zoo-explore .grove-toolbar .notes-toggle{background:#f5f1e22b}
+#zoo-explore.resting .grove-place,#zoo-explore.resting .walk-marker{display:none!important}
+#zoo-explore.note-open .explore-hint,#zoo-explore.note-open .emote-tools,#zoo-explore.note-open .zoom-tools,#zoo-explore.note-open .zoo-minimap,#zoo-explore.note-open .pond-actions,#zoo-explore.note-open .explore-controls,#zoo-explore.note-open .pond-center-action,#zoo-explore.note-open .grove-guide{visibility:hidden;pointer-events:none}
+@media(max-width:850px){
+ #zoo-explore .grove-toolbar{max-width:none;gap:6px}
+ #zoo-explore .grove-toolbar>button{font-size:11px;padding:10px 11px}
+ .grove-place-control{width:245px;padding:15px}
+}
+@media(max-width:600px){
+ #grove-notes-overlay{padding:12px}
+ .pocket-notebook{max-height:calc(100dvh - 24px);padding:18px 18px 15px;border-radius:12px}
+ .notebook-heading{padding-bottom:10px;gap:10px}
+ .notebook-heading .eyebrow{font-size:9px;letter-spacing:1.2px}
+ .pocket-notebook h2{font-size:29px;margin-top:17px}
+ .pocket-notebook .notebook-intro{font-size:12px;margin-bottom:15px}
+ .notebook-pages{grid-template-columns:1fr;gap:0}
+ .notebook-entry{grid-template-columns:48px minmax(0,1fr);gap:13px;padding:17px 0}
+ .note-copy h3{font-size:21px}
+ .note-copy p{font-size:12px}
+ .note-copy small{font-size:11px}
+ .note-walk{font-size:11px;padding:10px 12px}
+ .notebook-footer{gap:12px;align-items:flex-start;margin-top:0;padding-top:15px}
+ .notebook-footer>small{font-size:11px}
+ .notebook-footer .secondary{font-size:11px;padding:10px 12px}
+ .grove-place-control{width:206px;max-width:calc(100% - 144px);min-width:0;padding:13px 12px 11px;border-radius:12px}
+ .grove-place-control>.eyebrow{font-size:8px;letter-spacing:1px;margin-bottom:6px}
+ .grove-place-control>strong{font-size:19px}
+ .grove-place-control>p{font-size:11px;line-height:1.6;margin:7px 0 10px}
+ .grove-place-control>button{font-size:11px;padding:10px 8px;min-height:44px}
+ .grove-place-label{font-size:11px;max-width:140px}
+ #zoo-explore .explore-top{display:grid;grid-template-columns:minmax(0,1fr) 194px;align-items:center;gap:12px;padding:14px 15px 12px;min-height:118px}
+ #zoo-explore .explore-top>div:first-child{min-width:0}
+ #zoo-explore .explore-top .eyebrow{display:none}
+ #zoo-explore .explore-top h2{font-size:21px;line-height:1.2;max-width:none;overflow-wrap:anywhere;margin:0}
+ #zoo-explore .grove-toolbar{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:'notes sound' 'rest exit';gap:5px;width:194px;max-width:none;justify-content:stretch}
+ #zoo-explore .grove-toolbar>button{min-height:44px;width:100%;padding:7px 8px;font-size:11px;line-height:1.3;white-space:normal;text-align:center;display:flex;align-items:center;justify-content:center}
+ #zoo-explore .grove-toolbar .notes-toggle{grid-area:notes}
+ #zoo-explore .grove-toolbar [data-sound-toggle]{grid-area:sound}
+ #zoo-explore .grove-toolbar #rest-toggle{grid-area:rest}
+ #zoo-explore .grove-toolbar .exit-zoo{grid-area:exit;border:1px solid #e1e8d05e;background:#f5f1e21c;border-radius:9px}
+ #zoo-explore .explore-hint{top:133px;left:14px;max-width:186px;font-size:11px;line-height:1.6;padding:10px 11px}
+ #zoo-explore .zoom-tools{top:133px;right:14px}
+ #zoo-explore .zoom-tools button{width:32px;height:40px}
+ #zoo-explore .zoo-minimap{top:188px;right:14px}
+ #zoo-explore .emote-tools{top:219px;left:14px}
+ #zoo-explore .pond-actions{top:276px;right:14px}
+ #zoo-explore .pond-actions button{min-height:44px;font-size:11px;padding:10px 11px}
+}
+@media(max-width:360px){
+ #zoo-explore .explore-top{grid-template-columns:minmax(0,1fr) 176px;gap:8px;padding-left:12px;padding-right:12px}
+ #zoo-explore .grove-toolbar{width:176px}
+ #zoo-explore .explore-top h2{font-size:18px}
+ #zoo-explore .explore-hint{max-width:145px}
+ .grove-place-control{max-width:calc(100% - 138px);padding:11px 10px}
+ .grove-place-control>strong{font-size:18px}
+ .notebook-footer{flex-direction:column;gap:10px}
+ .notebook-footer .secondary{width:100%}
+}
+@media(max-height:600px) and (min-width:601px){
+ #zoo-explore .explore-top{min-height:64px;padding:9px 16px;display:flex}
+ #zoo-explore .explore-top .eyebrow{display:none}
+ #zoo-explore .explore-top h2{font-size:19px;margin:0}
+ #zoo-explore .grove-toolbar{display:flex;gap:6px;width:auto;max-width:none}
+ #zoo-explore .grove-toolbar>button{min-height:40px;font-size:11px;padding:8px 11px}
+ #zoo-explore .explore-hint,#zoo-explore .emote-tools,#zoo-explore .zoo-minimap{display:none}
+ #zoo-explore .zoom-tools{top:76px;left:16px;right:auto}
+ #zoo-explore .pond-actions{top:76px;right:16px;max-width:none;flex-direction:row;gap:7px}
+ #zoo-explore .pond-actions button{min-height:40px;font-size:11px}
+ #zoo-explore .explore-controls{bottom:12px}
+ .grove-place-control{width:270px;padding:12px 14px}
+ .grove-place-control>.eyebrow{display:none}
+ .grove-place-control>strong{font-size:19px}
+ .grove-place-control>p{font-size:11px;margin:6px 0 8px}
+ .grove-place-control>button{min-height:40px;font-size:11px;padding:8px 11px}
+ #grove-notes-overlay{padding:12px}
+ .pocket-notebook{max-height:calc(100dvh - 24px);padding:17px 23px}
+ .pocket-notebook h2{font-size:27px;margin-top:14px}
+ .pocket-notebook .notebook-intro{margin-bottom:12px}
+ .notebook-entry{padding-top:13px;padding-bottom:13px}
+}
+@media(prefers-reduced-motion:no-preference){
+ .grove-place-pin:before{transition:background-color .18s,border-color .18s}
+ .grove-place-label{transition:opacity .16s,visibility .16s}
+}

@@ -1,0 +1,1 @@
+CREATE TABLE room_presence (room TEXT NOT NULL REFERENCES rooms(code), player TEXT NOT NULL REFERENCES players(id), session TEXT NOT NULL, state TEXT NOT NULL, seen INTEGER NOT NULL, seq INTEGER NOT NULL, PRIMARY KEY(room,player,session));
